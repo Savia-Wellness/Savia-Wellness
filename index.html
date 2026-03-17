@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Savia · Women's Wellness Coaching with Marcela Shea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --sage:       #7A9A7E;
+    --sage-light: #A8C4A2;
+    --moss:       #4A6741;
+    --cream:      #F7F3EC;
+    --warm-white: #FDFAF5;
+    --sand:       #D9C9A8;
+    --terra:      #B5845A;
+    --bark:       #5C4033;
+    --text:       #2E2A25;
+    --text-soft:  #6B5F52;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--warm-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--moss);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(168,196,162,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(90,65,51,0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 60px solid rgba(168,196,162,0.12);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--sage-light);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    line-height: 1.06;
+    color: var(--cream);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+  .hero h1 em { font-style: italic; color: var(--sand); }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: rgba(247,243,236,0.72);
+    max-width: 420px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: var(--terra);
+    color: #fff;
+    text-decoration: none;
+    padding: 17px 38px;
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    transition: background 0.3s, transform 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+    align-self: flex-start;
+  }
+  .hero-cta:hover { background: var(--bark); transform: translateY(-2px); }
+
+  .hero-note {
+    margin-top: 28px;
+    padding-left: 16px;
+    border-left: 1.5px solid rgba(168,196,162,0.4);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+  }
+  .hero-note p {
+    font-family: 'Lora', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: rgba(247,243,236,0.5);
+    line-height: 1.75;
+  }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding: 80px 60px;
+  }
+
+  .hero-card {
+    background: rgba(247,243,236,0.06);
+    border: 1px solid rgba(168,196,162,0.22);
+    backdrop-filter: blur(14px);
+    padding: 52px 48px;
+    max-width: 380px;
+    width: 100%;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.7s;
+  }
+
+  .hero-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 32px;
+    line-height: 1.35;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(168,196,162,0.2);
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .stat { border-left: 1.5px solid var(--terra); padding-left: 14px; }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--sand);
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+
+  .stat-label {
+    font-family: 'Lora', serif;
+    font-size: 0.7rem;
+    font-style: italic;
+    color: rgba(247,243,236,0.48);
+  }
+
+  .hero-card-detail {
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    color: rgba(247,243,236,0.52);
+    line-height: 1.85;
+    font-style: italic;
+    padding-top: 20px;
+    border-top: 1px solid rgba(168,196,162,0.15);
+  }
+
+  /* ── SHARED ── */
+  section { padding: 100px 0; }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .section-label {
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--terra);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.12;
+    color: var(--bark);
+    margin-bottom: 26px;
+  }
+  .section-heading em { font-style: italic; color: var(--moss); }
+
+  .section-body {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--text-soft);
+    max-width: 600px;
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle leaf watermark behind content */
+  .about-section::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -40px;
+    width: 380px; height: 380px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 10 C60 30, 20 80, 30 140 C50 180, 90 190, 100 190 C110 190, 150 180, 170 140 C180 80, 140 30, 100 10Z' fill='none' stroke='%234A6741' stroke-width='1' opacity='0.08'/%3E%3Cline x1='100' y1='10' x2='100' y2='190' stroke='%234A6741' stroke-width='0.8' opacity='0.08'/%3E%3Cline x1='100' y1='70' x2='60' y2='100' stroke='%234A6741' stroke-width='0.8' opacity='0.08'/%3E%3Cline x1='100' y1='100' x2='140' y2='130' stroke='%234A6741' stroke-width='0.8' opacity='0.08'/%3E%3Cline x1='100' y1='130' x2='65' y2='155' stroke='%234A6741' stroke-width='0.8' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-visual { position: relative; }
+
+  .about-nameplate {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 48px 40px;
+  }
+
+  /* large ghosted S watermark */
+  .about-nameplate::before {
+    content: 'S';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--sand);
+    opacity: 0.18;
+    position: absolute;
+    right: -30px;
+    bottom: -40px;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* corner accent marks */
+  .about-nameplate::after {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px; right: 16px; bottom: 16px;
+    border-top: 1px solid rgba(181,132,90,0.2);
+    border-bottom: 1px solid rgba(181,132,90,0.2);
+    pointer-events: none;
+  }
+
+  .nameplate-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nameplate-rule {
+    width: 40px; height: 1px;
+    background: var(--terra);
+    margin: 0 auto 28px;
+    opacity: 0.7;
+  }
+
+  .nameplate-first {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 3.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--bark);
+    line-height: 1;
+    display: block;
+    letter-spacing: 0.02em;
+  }
+
+  .nameplate-last {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--moss);
+    line-height: 1.1;
+    display: block;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .nameplate-rule-bottom {
+    width: 40px; height: 1px;
+    background: var(--terra);
+    margin: 28px auto 20px;
+    opacity: 0.7;
+  }
+
+  .nameplate-title {
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--text-soft);
+    letter-spacing: 0.1em;
+    opacity: 0.75;
+  }
+
+  .about-text .section-body { margin-bottom: 36px; }
+
+  .cert-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: 1px solid var(--sand);
+    padding: 12px 22px;
+    font-family: 'Lora', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--moss);
+  }
+
+  .cert-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--terra);
+    flex-shrink: 0;
+  }
+
+  /* ── INCLUDED ── */
+  .included-section {
+    background: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* scattered leaf motifs */
+  .included-section::after {
+    content: '';
+    position: absolute;
+    left: -40px; bottom: -40px;
+    width: 300px; height: 300px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='100' rx='60' ry='95' fill='none' stroke='%237A9A7E' stroke-width='1' opacity='0.12' transform='rotate(-20,100,100)'/%3E%3Cline x1='100' y1='15' x2='100' y2='185' stroke='%237A9A7E' stroke-width='0.8' opacity='0.1' transform='rotate(-20,100,100)'/%3E%3Cline x1='100' y1='60' x2='55'  y2='85'  stroke='%237A9A7E' stroke-width='0.8' opacity='0.1' transform='rotate(-20,100,100)'/%3E%3Cline x1='100' y1='90' x2='145' y2='115' stroke='%237A9A7E' stroke-width='0.8' opacity='0.1' transform='rotate(-20,100,100)'/%3E%3Cline x1='100' y1='120' x2='58'  y2='142' stroke='%237A9A7E' stroke-width='0.8' opacity='0.1' transform='rotate(-20,100,100)'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+
+  .included-header { text-align: center; margin-bottom: 70px; position: relative; z-index: 1; }
+  .included-header .section-label,
+  .included-header .section-heading { display: block; text-align: center; }
+  .included-header .section-body { margin: 0 auto; text-align: center; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--sand);
+    position: relative;
+    z-index: 1;
+  }
+
+  .card {
+    background: var(--warm-white);
+    padding: 44px 36px;
+    transition: background 0.3s;
+  }
+  .card:hover { background: #f0ebe0; }
+
+  .card-rule {
+    width: 24px; height: 1.5px;
+    background: var(--terra);
+    margin-bottom: 22px;
+  }
+
+  .card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--bark);
+    margin-bottom: 14px;
+    line-height: 1.35;
+  }
+
+  .card p {
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    line-height: 1.85;
+    color: var(--text-soft);
+  }
+
+  /* ── JOURNEY ── */
+  .journey-section {
+    background: var(--bark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* large botanical behind journey text */
+  .journey-botanicals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.07;
+  }
+
+  .journey-section .section-heading { color: var(--cream); }
+  .journey-section .section-body { color: rgba(247,243,236,0.58); font-style: italic; }
+
+  .journey-inner { position: relative; z-index: 1; }
+
+  .journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 64px;
+  }
+
+  .phase { position: relative; padding-top: 24px; }
+
+  .phase::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 32px; height: 1.5px;
+    background: var(--terra);
+  }
+
+  .phase-weeks {
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--terra);
+    margin-bottom: 12px;
+    margin-top: 18px;
+  }
+
+  .phase h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .phase p {
+    font-family: 'Lora', serif;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: rgba(247,243,236,0.54);
+  }
+
+  /* ── OUTCOMES + QR ── */
+  .outcomes-section {
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .outcomes-section::before {
+    content: '';
+    position: absolute;
+    right: 0; top: 0;
+    width: 420px; height: 420px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cpath d='M150 380 C150 380 80 300 80 200 C80 100 120 20 150 20 C180 20 220 100 220 200 C220 300 150 380 150 380Z' fill='none' stroke='%234A6741' stroke-width='1.2' opacity='0.09'/%3E%3Cpath d='M150 380 L150 20' stroke='%234A6741' stroke-width='0.9' opacity='0.08'/%3E%3Cpath d='M150 120 C150 120 100 140 80 160' stroke='%234A6741' stroke-width='0.9' opacity='0.08'/%3E%3Cpath d='M150 160 C150 160 200 180 220 200' stroke='%234A6741' stroke-width='0.9' opacity='0.08'/%3E%3Cpath d='M150 220 C150 220 105 240 90 265' stroke='%234A6741' stroke-width='0.9' opacity='0.08'/%3E%3Cpath d='M150 270 C150 270 195 288 210 310' stroke='%234A6741' stroke-width='0.9' opacity='0.08'/%3E%3Cpath d='M40 200 C40 200 10 150 20 100 C30 50 70 30 90 60 C110 90 80 150 40 200Z' fill='none' stroke='%23B5845A' stroke-width='1' opacity='0.07'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right top;
+    pointer-events: none;
+  }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .outcome-list {
+    list-style: none;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .outcome-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-family: 'Lora', serif;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--text-soft);
+  }
+
+  .outcome-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--terra);
+    flex-shrink: 0;
+    margin-top: 9px;
+  }
+
+  .qr-block {
+    background: white;
+    border: 1px solid var(--sand);
+    padding: 48px 44px;
+    text-align: center;
+  }
+
+  .qr-block h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--bark);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .qr-block > p {
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--text-soft);
+    margin-bottom: 32px;
+    line-height: 1.75;
+  }
+
+  #qrcode {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  #qrcode canvas, #qrcode img {
+    border: 10px solid white;
+    box-shadow: 0 4px 28px rgba(0,0,0,0.07);
+  }
+
+  .qr-url {
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--terra);
+    margin-bottom: 10px;
+    word-break: break-all;
+  }
+
+  .qr-instruction {
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    color: rgba(107,95,82,0.5);
+    font-style: italic;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--sage);
+    padding: 90px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* botanical framing for CTA */
+  .cta-left-plant, .cta-right-plant {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 200px;
+    pointer-events: none;
+    opacity: 0.12;
+  }
+  .cta-left-plant  { left: 0; }
+  .cta-right-plant { right: 0; transform: scaleX(-1); }
+
+  .cta-inner { position: relative; z-index: 1; }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .cta-section h2 em { font-style: italic; }
+
+  .cta-section p {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(247,243,236,0.7);
+    margin-bottom: 48px;
+    max-width: 520px;
+    margin-left: auto; margin-right: auto;
+    line-height: 1.9;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--terra);
+    color: white;
+    text-decoration: none;
+    padding: 17px 40px;
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--bark); transform: translateY(-2px); }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 17px 40px;
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    border: 1px solid rgba(247,243,236,0.4);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--cream); background: rgba(255,255,255,0.08); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bark);
+    padding: 52px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  footer::before {
+    content: '';
+    position: absolute;
+    left: 50%; top: -60px;
+    transform: translateX(-50%);
+    width: 500px; height: 120px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 120'%3E%3Cpath d='M250 110 C250 110 200 80 160 60 C120 40 80 35 50 45 C20 55 10 75 20 90' fill='none' stroke='%23A8C4A2' stroke-width='1' opacity='0.2'/%3E%3Cpath d='M250 110 C250 110 300 80 340 60 C380 40 420 35 450 45 C480 55 490 75 480 90' fill='none' stroke='%23A8C4A2' stroke-width='1' opacity='0.2'/%3E%3Cpath d='M250 110 L250 30' stroke='%23A8C4A2' stroke-width='1' opacity='0.15'/%3E%3Cellipse cx='210' cy='55' rx='30' ry='18' fill='none' stroke='%23A8C4A2' stroke-width='0.8' opacity='0.15' transform='rotate(-30,210,55)'/%3E%3Cellipse cx='290' cy='55' rx='30' ry='18' fill='none' stroke='%23A8C4A2' stroke-width='0.8' opacity='0.15' transform='rotate(30,290,55)'/%3E%3Cellipse cx='175' cy='78' rx='22' ry='14' fill='none' stroke='%23A8C4A2' stroke-width='0.8' opacity='0.12' transform='rotate(-45,175,78)'/%3E%3Cellipse cx='325' cy='78' rx='22' ry='14' fill='none' stroke='%23A8C4A2' stroke-width='0.8' opacity='0.12' transform='rotate(45,325,78)'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+  }
+
+  .footer-rule {
+    width: 40px; height: 1px;
+    background: rgba(168,196,162,0.25);
+    margin: 0 auto 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-brand {
+    font-family: 'Lora', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: rgba(247,243,236,0.5);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(247,243,236,0.45);
+    text-decoration: none;
+    transition: color 0.25s;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(168,196,162,0.18);
+    border-radius: 50%;
+  }
+  .footer-link:hover { color: var(--sage-light); border-color: rgba(168,196,162,0.4); }
+  .footer-link svg { flex-shrink: 0; }
+
+  .footer-sep {
+    color: rgba(168,196,162,0.3);
+    font-size: 0.9rem;
+  }
+
+  .footer-note {
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: rgba(247,243,236,0.28);
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 80px 36px 40px; }
+    .hero-right { padding: 40px 36px 80px; }
+    .about-grid, .outcomes-grid { grid-template-columns: 1fr; gap: 52px; }
+    .about-visual { max-width: 340px; margin: 0 auto; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .journey-grid { grid-template-columns: 1fr; gap: 36px; }
+    .container { padding: 0 28px; }
+    section { padding: 72px 0; }
+    .cta-left-plant, .cta-right-plant { width: 100px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+    <span class="eyebrow">Savia Wellness · Whole Woman Wellness Coach</span>
+    <h1>Reclaim your<br /><em>rhythm.</em><br />Restore your<br />wellbeing.</h1>
+    <p class="hero-sub">Complimentary 1:1 health coaching sessions with Marcela Shea, a certified-in-training wellness coach dedicated to helping women build lasting, joyful habits from the inside out.</p>
+    <a href="/cdn-cgi/l/email-protection#d3b6bfb2a0bbb6b2e1e793b4beb2babffdb0bcbe" class="hero-cta">Claim Your Complimentary Session</a>
+    <div class="hero-note">
+      <p>Limited spots available. Sessions are complimentary<br />as part of my NBHWC board certification process.</p>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card">
+      <h3>What's Included</h3>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Private Sessions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Week Journey</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Complimentary</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">You</div>
+          <div class="stat-label">At the Center</div>
+        </div>
+      </div>
+      <p class="hero-card-detail">Virtual sessions via Zoom · Flexible scheduling · Personalized wellness plan · Ongoing support between sessions</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-nameplate">
+          <div class="nameplate-inner">
+            <div class="nameplate-rule"></div>
+            <span class="nameplate-first">Marcela</span>
+            <span class="nameplate-last">Shea</span>
+            <div class="nameplate-rule-bottom"></div>
+            <span class="nameplate-title">Health &amp; Wellness Coach</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">About Marcela</span>
+        <h2 class="section-heading">A coach who believes<br /><em>wellness is personal</em></h2>
+        <p class="section-body">
+          I'm Marcela, a health and wellness coach completing my NBHWC board certification, the gold standard in health coaching. To sit for the exam, I need to complete 50 supervised client sessions, which means I'm offering a limited number of women the opportunity to receive professional, personalized wellness coaching at no cost.
+        </p>
+        <p class="section-body" style="margin-top: 18px; margin-bottom: 36px;">
+          This isn't a trial run. You'll receive real, structured coaching: goal setting, mindset shifts, accountability, and a personalized wellness plan, with the same care and commitment I'll bring to every client going forward.
+        </p>
+        <div class="cert-tag">
+          <div class="cert-dot"></div>
+          Pursuing NBHWC Board Certification
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="included-section">
+  <div class="container">
+    <div class="included-header">
+      <span class="section-label">The Program</span>
+      <h2 class="section-heading">Everything included,<br /><em>nothing held back</em></h2>
+      <p class="section-body">A complete coaching experience, not a preview. Here is exactly what you'll receive over our 12 weeks together.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-rule"></div>
+        <h4>Six Private 1:1 Sessions</h4>
+        <p>45–60 minute virtual sessions over 12 weeks via Zoom. We go deep, at your pace, on what matters most to your wellbeing.</p>
+      </div>
+      <div class="card">
+        <div class="card-rule"></div>
+        <h4>Personalized Wellness Plan</h4>
+        <p>A custom roadmap built around your goals, lifestyle, and values, not a generic template. Your plan evolves as you do.</p>
+      </div>
+      <div class="card">
+        <div class="card-rule"></div>
+        <h4>Ongoing Support &amp; Accountability</h4>
+        <p>Access to me between sessions via email or messaging. Consistency is where lasting change is built and you won't navigate it alone.</p>
+      </div>
+      <div class="card">
+        <div class="card-rule"></div>
+        <h4>Mindset &amp; Habit Coaching</h4>
+        <p>We'll uncover the patterns holding you back and build sustainable habits grounded in your unique rhythms and values.</p>
+      </div>
+      <div class="card">
+        <div class="card-rule"></div>
+        <h4>Reflective Tools &amp; Resources</h4>
+        <p>Worksheets, journal prompts, and frameworks to help you integrate what you're learning between our sessions.</p>
+      </div>
+      <div class="card">
+        <div class="card-rule"></div>
+        <h4>Complimentary. Entirely.</h4>
+        <p>These sessions are offered at no cost as part of my certification pathway. You receive a full coaching experience and I complete my required hours. A true partnership.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey-section">
+  <!-- large fern watermark -->
+  <svg class="journey-botanicals" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(950, -40) rotate(10)" fill="none" stroke="#A8C4A2" stroke-width="1.5">
+      <path d="M60 0 C60 0 100 80 90 180 C80 280 40 340 30 400 C15 460 50 500 80 480 C110 460 140 400 140 320 C140 240 120 140 60 0Z"/>
+      <path d="M60 0 L60 480"/>
+      <path d="M60 80  C60 80  10 110 -5 145"/>
+      <path d="M60 160 C60 160 120 185 140 215"/>
+      <path d="M60 240 C60 240 8  265 -8  300"/>
+      <path d="M60 330 C60 330 125 350 142 378"/>
+      <path d="M60 400 C60 400 15 420 5  448"/>
+    </g>
+    <g transform="translate(30, 100) rotate(-5)" fill="none" stroke="#A8C4A2" stroke-width="1">
+      <path d="M40 0 C40 0 70 60 62 140 C54 220 28 265 22 310 C10 360 35 390 55 375 C75 360 95 310 95 250 C95 190 80 100 40 0Z"/>
+      <path d="M40 0 L40 375"/>
+      <path d="M40 70  C40 70  8 92 0 118"/>
+      <path d="M40 140 C40 140 82 158 95 182"/>
+      <path d="M40 210 C40 210 6  228 -2 255"/>
+    </g>
+  </svg>
+
+  <div class="container journey-inner">
+    <span class="section-label" style="color: var(--sage-light);">The Journey</span>
+    <h2 class="section-heading" style="color: var(--cream);">Twelve weeks.<br /><em style="color: var(--sand);">Real transformation.</em></h2>
+    <p class="section-body">Each phase builds upon the last, designed to move you from clarity to confidence, one intentional step at a time.</p>
+
+    <div class="journey-grid">
+      <div class="phase">
+        <div class="phase-weeks">Weeks 1–4</div>
+        <h4>Awareness &amp; Foundation</h4>
+        <p>We begin by understanding where you are, identifying your values, goals, and the patterns shaping your daily life. You'll leave this phase with clarity about what you truly want and why.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-weeks">Weeks 5–8</div>
+        <h4>Mindful Action &amp; Momentum</h4>
+        <p>From clarity to movement. We'll build practical habits, stress-reduction strategies, and a mindset that supports lasting change, grounded in alignment, not willpower.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-weeks">Weeks 9–12</div>
+        <h4>Confidence &amp; Integration</h4>
+        <p>We anchor your progress, refine your wellness plan, and set you up for long-term success. You'll finish with a lifestyle that feels genuinely yours, sustainable, joyful, and aligned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES + QR -->
+<section class="outcomes-section">
+  <div class="container">
+    <div class="outcomes-grid">
+      <div>
+        <span class="section-label">What You'll Walk Away With</span>
+        <h2 class="section-heading">You'll feel<br /><em>different.</em><br />In the best way.</h2>
+        <ul class="outcome-list">
+          <li>A clear, personalized wellness vision that feels genuinely achievable</li>
+          <li>Sustainable habits built around your real life, not someone else's ideal</li>
+          <li>Tools to manage stress and navigate change with greater ease</li>
+          <li>Deeper trust in yourself and your body's signals</li>
+          <li>A wellness plan you'll want to maintain long after we finish</li>
+          <li>Renewed energy and clarity around what health means for you</li>
+        </ul>
+      </div>
+
+      <div class="qr-block">
+        <h4>Ready to begin your journey?</h4>
+        <p>Scan to save this page, share it with someone who needs it, or reach out directly. Spots are limited.</p>
+        <div id="qrcode"></div>
+        <div class="qr-url">YOUR-WEBSITE.COM/COACHING</div>
+        <p class="qr-instruction">Scan with your phone camera to open</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <!-- flanking plant silhouettes -->
+  <svg class="cta-left-plant" viewBox="0 0 200 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#F7F3EC" stroke-width="1.2">
+    <path d="M160 580 L100 200 C100 200 60 120 80 60 C100 0 140 -10 140 -10"/>
+    <path d="M100 200 C100 200 40 180 10 150"/>
+    <path d="M105 300 C105 300 45 280 15 255"/>
+    <path d="M110 390 C110 390 55 370 28 342"/>
+    <ellipse cx="130" cy="80"  rx="40" ry="22" transform="rotate(-40,130,80)"/>
+    <ellipse cx="88"  cy="155" rx="36" ry="20" transform="rotate(25,88,155)"/>
+    <ellipse cx="75"  cy="240" rx="32" ry="18" transform="rotate(-20,75,240)"/>
+    <ellipse cx="80"  cy="330" rx="28" ry="16" transform="rotate(15,80,330)"/>
+  </svg>
+  <svg class="cta-right-plant" viewBox="0 0 200 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#F7F3EC" stroke-width="1.2">
+    <path d="M160 580 L100 200 C100 200 60 120 80 60 C100 0 140 -10 140 -10"/>
+    <path d="M100 200 C100 200 40 180 10 150"/>
+    <path d="M105 300 C105 300 45 280 15 255"/>
+    <path d="M110 390 C110 390 55 370 28 342"/>
+    <ellipse cx="130" cy="80"  rx="40" ry="22" transform="rotate(-40,130,80)"/>
+    <ellipse cx="88"  cy="155" rx="36" ry="20" transform="rotate(25,88,155)"/>
+    <ellipse cx="75"  cy="240" rx="32" ry="18" transform="rotate(-20,75,240)"/>
+    <ellipse cx="80"  cy="330" rx="28" ry="16" transform="rotate(15,80,330)"/>
+  </svg>
+
+  <div class="cta-inner container">
+    <h2>This is your invitation to<br /><em>feel like yourself again.</em></h2>
+    <p>Spots are limited and this offer won't last long. If you're curious, that curiosity is worth honoring. Reach out and let's begin with a conversation.</p>
+    <div class="cta-buttons">
+      <a href="/cdn-cgi/l/email-protection#f2979e93819a9793c0c6b2959f939b9edc919d9fcd81879098979186cfbbd59fd29b9c8697809781869796d29b9cd2a193849b93d285979e9e9c978181d2919d93919a9b9c95" class="btn-primary">Write to Marcela</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-rule"></div>
+  <p class="footer-brand"><strong>Savia Wellness</strong> &nbsp;&middot;&nbsp; Whole Woman Wellness Coach</p>
+  <p class="footer-brand" style="font-size:0.7rem; margin-bottom: 16px; opacity: 0.6;">&copy; 2026 Savia Wellness. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="mailto:elashea24@gmail.com" class="footer-link" aria-label="Email Marcela">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 7l10 7 10-7"/>
+      </svg>
+    </a>
+    <a href="https://instagram.com/elashea24" target="_blank" class="footer-link" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+      </svg>
+    </a>
+  </div>
+  <p class="footer-note">Coaching sessions are offered complimentary as part of NBHWC board certification requirements.</p>
+</footer>
+
+<script>
+  window.addEventListener('load', function() {
+    var pageURL = "https://YOUR-WEBSITE.COM/COACHING";
+    new QRCode(document.getElementById("qrcode"), {
+      text: pageURL,
+      width: 180,
+      height: 180,
+      colorDark: "#4A6741",
+      colorLight: "#FFFFFF",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  });
+</script>
+</body>
+</html>
