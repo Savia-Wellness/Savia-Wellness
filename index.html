@@ -809,7 +809,7 @@
     <span class="eyebrow" style="font-size: 1.1rem; letter-spacing: 0.18em; font-style: normal; font-family: 'Cormorant Garamond', serif; font-weight: 300;">Savia Wellness</span>
     <h1>Reclaim your<br /><em>rhythm.</em><br />Restore your<br />wellbeing.</h1>
     <p class="hero-sub">Complimentary 1:1 health coaching sessions with Marcela Shea, a certified-in-training wellness coach dedicated to helping women build lasting, joyful habits from the inside out.</p>
-    <a href="/cdn-cgi/l/email-protection#d3b6bfb2a0bbb6b2e1e793b4beb2babffdb0bcbe" class="hero-cta">Claim Your Complimentary Session</a>
+    <a href="mailto:elashea24@gmail.com" class="hero-cta">Claim Your Complimentary Session</a>
     <div class="hero-note">
       <p>Limited spots available. Sessions are complimentary<br />as part of my NBHWC board certification process.</p>
     </div>
@@ -986,7 +986,7 @@
         <h4>Ready to begin your journey?</h4>
         <p>Scan to save this page, share it with someone who needs it, or reach out directly. Spots are limited.</p>
         <div id="qrcode"></div>
-        <div class="qr-url">YOUR-WEBSITE.COM/COACHING</div>
+        <div class="qr-url">savia-wellness.github.io/Savia-Wellness</div>
         <p class="qr-instruction">Scan with your phone camera to open</p>
       </div>
     </div>
@@ -1021,7 +1021,7 @@
     <h2>This is your invitation to<br /><em>feel like yourself again.</em></h2>
     <p>Spots are limited and this offer won't last long. If you're curious, that curiosity is worth honoring. Reach out and let's begin with a conversation.</p>
     <div class="cta-buttons">
-      <a href="/cdn-cgi/l/email-protection#f2979e93819a9793c0c6b2959f939b9edc919d9fcd81879098979186cfbbd59fd29b9c8697809781869796d29b9cd2a193849b93d285979e9e9c978181d2919d93919a9b9c95" class="btn-primary">Write to Marcela</a>
+      <a href="mailto:elashea24@gmail.com" class="btn-primary">Write to Marcela</a>
     </div>
   </div>
 </section>
@@ -1032,7 +1032,7 @@
   <p class="footer-brand"><strong>Savia Wellness</strong></p>
   <p class="footer-brand" style="font-size:0.7rem; margin-bottom: 16px; opacity: 0.6;">&copy; 2026 Savia Wellness. All rights reserved.</p>
   <div class="footer-links">
-    <a href="/cdn-cgi/l/email-protection#e3868f82908b8682d1d7a3848e828a8fcd808c8e" class="footer-link" aria-label="Email Marcela">
+    <a href="mailto:elashea24@gmail.com" class="footer-link" aria-label="Email Marcela">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
         <path d="M2 7l10 7 10-7"/>
@@ -1049,10 +1049,20 @@
   <p class="footer-note">Coaching sessions are offered complimentary as part of NBHWC board certification requirements.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   window.addEventListener('load', function() {
     var pageURL = "https://savia-wellness.github.io/Savia-Wellness/";
-    new QRCode(document.getElementById("qrcode"), {
-      text: pageURL,
-      width: 180,
-      h
+    if (typeof QRCode !== 'undefined') {
+      new QRCode(document.getElementById("qrcode"), {
+        text: pageURL,
+        width: 180,
+        height: 180,
+        colorDark: "#4A6741",
+        colorLight: "#FFFFFF",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  });
+</script>
+</body>
+</html>
